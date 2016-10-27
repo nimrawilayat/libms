@@ -1,0 +1,34 @@
+package com.hurontg.mars.config;
+
+
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScan.Filter;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
+@Configuration
+@ComponentScan(basePackages = { "com.hurontg.mars" }, 
+	excludeFilters = {
+			@Filter(type = FilterType.ANNOTATION, value = EnableWebMvc.class),
+			@Filter(type = FilterType.ANNOTATION, value = Configuration.class),
+			@Filter(type = FilterType.ANNOTATION, value = Controller.class)
+	}
+)
+public class RootConfig {
+
+	@Bean
+	public static PropertySourcesPlaceholderConfigurer placeholderConfigurer() {
+		return new PropertySourcesPlaceholderConfigurer();
+	}
+
+	@Bean
+	public javax.validation.Validator localValidatorFactoryBean() {
+		return new LocalValidatorFactoryBean();
+	}
+}
