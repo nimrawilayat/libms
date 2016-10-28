@@ -1,0 +1,25 @@
+table {
+	font-family: arial;
+	font-size: 12px;
+	border: 1px solid #ccc;	
+}
+
+table tr {
+    background-color: #ddd;
+    border-spacing: 2px;
+}
+
+table td,th {
+    background-color: #eee;
+    padding: 3px;
+}
+
+span.error {
+	color: red;
+	margin-left: 20px;
+	font-family: arial;
+	font-size: 12px;
+    padding-top: 3px;
+    padding-bottom: 5px;	
+	
+}
