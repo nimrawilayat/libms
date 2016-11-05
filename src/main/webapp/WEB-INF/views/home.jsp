@@ -13,17 +13,26 @@
 <body>
 	<h1>Welcome to LibMS</h1>
 	
-	<h3><c:out value="${num}"/></h3>	
-	<h3><c:out value="${name}"/></h3>
-	<h3><c:out value="${currentDate}"/></h3>
+	Id: ${book.id}<br>
+	Title: ${book.title}<br>
+	Author: ${book.author}<br>
+	
 	
 	<table>
-	   <th>ID</th><th>Title</th><th>Author</th>
-	   <c:forEach items="${books}" var="b">
-	   <tr><td>${b.id}</td><td>${b.title}</td><td>${b.author}</td></tr>
-       </c:forEach>
+		<tr><th>id</th><th>Title</th><th>Author</th></tr>
+	<c:forEach items="${books}" var="book">
+		<tr>
+			<td>${book.id}</td>
+			<td>${book.title}</td>
+			<td>${book.author}</td>
+		</tr>
+	</c:forEach>
 	</table>
+
+
+<br>
+<a href="/libms/book/new">Create New Book</a>
 	
-	<a href="/book/form">Book Form</a>	
+	
 </body>
 </html>

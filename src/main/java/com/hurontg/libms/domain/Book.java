@@ -1,12 +1,8 @@
 package com.hurontg.libms.domain;
 
-import javax.validation.constraints.Size;
-
 public class Book {
 	private Long id;	
-	@Size(min = 5, max = 10)
 	private String title;
-	@Size(min = 5, max = 10)
 	private String author;
 
 	public Book() {
