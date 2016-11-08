@@ -10,39 +10,34 @@
     
     <script type="text/javascript" src="/libms/resources/js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="/libms/resources/js/bootstrap.min.js"></script>
+    
 </head>
 <body>
-	<h1>Create New Book</h1>
-	
 	<div class="container">		
 		<div class="row">
 			<div class="col-xs-4">
-				<form action="/libms/books" method="post">
+				<sf:form action="/libms/books" method="post" modelAttribute="book">
+				<h1>Create New Book</h1>
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">Id</label>
-				    <input type="text" class="form-control" id="id" name="id" placeholder="Id">
+				    <sf:input path="id"/>
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputPassword1">Title</label>
-				    <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+				    <sf:input path="title"/><br>
+				    <sf:errors path="title" cssClass="error" />				    
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputFile">Author</label>
-				    <input type="text" class="form-control" id="author" name="author" placeholder="Author">
+				    <sf:input path="author" placeholder="Author"/><br>
+				    <sf:errors path="author" cssClass="error"/>
 				  </div>
 				  <button type="submit" class="btn btn-default">Submit</button>
-				</form>
+				</sf:form>
 			</div>
 		</div>
 	</div>
 	
-	<br>
-	<form action="/libms/books" method="post">
-		ID: &nbsp; <input type="text" name="id"><br>
-		Title: &nbsp; <input type="text" name="title"><br>
-		Author: &nbsp; <input type="text" name="author"><br>
-		
-		<input type="submit">
-	</form>
+	
 </body>
 </html>

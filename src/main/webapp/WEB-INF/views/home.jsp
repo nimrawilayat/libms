@@ -32,6 +32,7 @@
 
 <br>
 <a href="/libms/book/new">Create New Book</a>
+<a href="/libms/book/new/v2">Create New Book v2</a>
 	
 	
 </body>

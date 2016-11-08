@@ -1,8 +1,17 @@
 package com.hurontg.libms.domain;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Book {
-	private Long id;	
+	private Long id;
+	
+	@NotNull
+	@Size(min=5, max=16)
 	private String title;
+	
+	@NotNull
+	@Size(min=2, max=26, message="Author name must be between {min} and {max}")
 	private String author;
 
 	public Book() {
