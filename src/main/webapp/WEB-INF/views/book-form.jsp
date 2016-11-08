@@ -13,25 +13,27 @@
 </head>
 <body>
 	<h1>Create New Book</h1>
-		
-	<div class="row">
-	<div class="col-xs-3">
-	<form action="/libms/books" method="post">
-	  <div class="form-group">
-	    <label for="exampleInputEmail1">Id</label>
-	    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Id">
-	  </div>
-	  <div class="form-group">
-	    <label for="exampleInputPassword1">Title</label>
-	    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Title">
-	  </div>
-	  <div class="form-group">
-	    <label for="exampleInputFile">Author</label>
-	    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Author">
-	  </div>
-	  <button type="submit" class="btn btn-default">Submit</button>
-	</form>
-	</div>
+	
+	<div class="container">		
+		<div class="row">
+			<div class="col-xs-4">
+				<form action="/libms/books" method="post">
+				  <div class="form-group">
+				    <label for="exampleInputEmail1">Id</label>
+				    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Id">
+				  </div>
+				  <div class="form-group">
+				    <label for="exampleInputPassword1">Title</label>
+				    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Title">
+				  </div>
+				  <div class="form-group">
+				    <label for="exampleInputFile">Author</label>
+				    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Author">
+				  </div>
+				  <button type="submit" class="btn btn-default">Submit</button>
+				</form>
+			</div>
+		</div>
 	</div>
 	
 	<br>
