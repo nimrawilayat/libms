@@ -28,6 +28,9 @@ public class HomeController {
 	@RequestMapping(value = { "/", "/home", "/home2" }, method = RequestMethod.GET)
 	public String getHomePage(Model model) {
 		model.addAttribute("books", books);
+		
+		Book book = new Book(30L, "C++ Rocks", "Mitchell Waite 333");
+		model.addAttribute("book", book);
 		return "home";
 	}
 
