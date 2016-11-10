@@ -39,7 +39,7 @@
 	
 
 <br>
-	<libms:customTag1 count="3"/>
+	<libms:customTag1 />
 	<libms:customTag2 domainObjectName="book"/>	
 </body>
 </html>
