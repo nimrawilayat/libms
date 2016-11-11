@@ -11,7 +11,7 @@ public class WebAppInitializer extends
 	
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class<?>[] { RootConfig.class };
+		return new Class<?>[] { RootConfig.class, DBConfig.class };
 	}
 
 	@Override

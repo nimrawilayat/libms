@@ -31,6 +31,11 @@ public class HomeController {
 		
 		Book book = new Book(30L, "C++ Rocks", "Mitchell Waite 333");
 		model.addAttribute("book", book);
+		
+		List<String> products = dao.getProducts();
+		for(String product: products) {
+			System.out.println(product);
+		}
 		return "home";
 	}
 

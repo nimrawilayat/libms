@@ -616,5 +616,19 @@
 		<!-- <dependency> <groupId>com.microsoft.sqlserver</groupId> <artifactId>sql-jdbc4</artifactId> 
 			<version>4.0</version> <scope>test</scope> </dependency> -->
 
+
+		<!-- <dependency>
+ 			<groupId>com.oracle.jdbc</groupId>
+ 			<artifactId>ojdbc7</artifactId>
+ 			<version>12.1.0.2</version>
+		</dependency> -->
+		<dependency>
+		    <groupId>com.oracle.jdbc</groupId>
+		    <artifactId>ojdbc7</artifactId>
+		    <version>0.9.2</version>
+		    <scope>system</scope>
+		    <systemPath>${project.basedir}/lib/ojdbc7.jar</systemPath>
+		</dependency>
+
 	</dependencies>
 </project>

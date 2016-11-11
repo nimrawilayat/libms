@@ -6,4 +6,6 @@ import com.hurontg.libms.domain.Book;
 
 public interface BookDao {
 	List<Book> getBooks();
+	
+	List<String> getProducts();
 }
