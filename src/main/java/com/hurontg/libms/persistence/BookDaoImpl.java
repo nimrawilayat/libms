@@ -74,7 +74,7 @@ public class BookDaoImpl implements BookDao {
 
 	private static final String SQL_UPDATE_BOOK = "update book set author = ?, title = ? where id = ?";
 
-	public void saveSpitter(Book book) {
+	public void saveBook(Book book) {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 

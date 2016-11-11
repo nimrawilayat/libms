@@ -16,19 +16,19 @@
 	<div class="container">		
 		<div class="row">
 			<div class="col-xs-4">
-				<sf:form action="/libms/books" method="post" modelAttribute="book">
 				<h1>Create New Book</h1>
+				<sf:form action="/libms/books" method="post" modelAttribute="book">				
 				  <div class="form-group">
-				    <label for="exampleInputEmail1">Id</label>
+				    <label for="id">Id</label>
 				    <sf:input path="id"/>
 				  </div>
 				  <div class="form-group">
-				    <label for="exampleInputPassword1">Title</label>
+				    <label for="title">Title</label>
 				    <sf:input path="title"/><br>
 				    <sf:errors path="title" cssClass="error" />				    
 				  </div>
 				  <div class="form-group">
-				    <label for="exampleInputFile">Author</label>
+				    <label for="author">Author</label>
 				    <sf:input path="author" placeholder="Author"/><br>
 				    <sf:errors path="author" cssClass="error"/>
 				  </div>
