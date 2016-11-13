@@ -7,7 +7,7 @@ public class Book {
 	private Long id;
 	
 	@NotNull
-	@Size(min=5, max=16)
+	@Size(min=5, max=16, message="The Title property name must be between {min} and {max}")
 	private String title;
 	
 	@NotNull
@@ -47,4 +47,11 @@ public class Book {
 		this.author = author;
 	}
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return id + ", " + title + ", " + author;
+	}
+
+	
 }

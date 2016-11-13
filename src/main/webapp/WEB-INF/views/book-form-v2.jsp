@@ -7,6 +7,7 @@
 <title>LibMS</title>
 	<link rel="stylesheet" type="text/css" href="/libms/resources/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/libms/resources/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="/libms/resources/css/style.css">
     
     <script type="text/javascript" src="/libms/resources/js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="/libms/resources/js/bootstrap.min.js"></script>

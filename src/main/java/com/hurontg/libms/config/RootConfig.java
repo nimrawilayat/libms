@@ -15,7 +15,8 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
-@ComponentScan(basePackages = { "com.hurontg.libms" }, 
+@ComponentScan(
+	basePackages = { "com.hurontg.libms" }, 
 	excludeFilters = {
 			@Filter(type = FilterType.ANNOTATION, value = EnableWebMvc.class),
 			@Filter(type = FilterType.ANNOTATION, value = Configuration.class),

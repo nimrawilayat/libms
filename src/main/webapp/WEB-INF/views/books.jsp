@@ -14,12 +14,7 @@
     <script type="text/javascript" src="/libms/resources/js/bootstrap.min.js"></script>    
 </head>
 <body>
-	<h1>Welcome to LibMS</h1>
-	
-	Id: ${book.id}<br>
-	Title: ${book.title}<br>
-	Author: ${book.author}<br>
-	
+	<h1>Books</h1>	
 	
 	<table>
 		<tr><th>id</th><th>Title</th><th>Author</th></tr>
@@ -37,10 +32,5 @@
 <div><a href="/libms/book/new">Create New Book</a></div>
 <div><a href="/libms/book/new/v2">Create New Book v2</a></div>
 	
-
-<br>
-	<libms:customTag1 count="1"/>
-	
-	<libms:customTag2 domainObjectName="book_hello"/>	
 </body>
 </html>

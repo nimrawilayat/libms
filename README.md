@@ -18,3 +18,14 @@ sa/password1
 @Past 			The value of the annotated element must be a date in the past.
 @Pattern 		The value of the annotated element must match a given regular expression.
 @Size 			The value of the annotated element must be either a String, a collection, or an array whose length fits within the given range
+
+@Component
+
+@Controller
+@Repository
+@Service
+
+C - INSERT
+R - SELECT
+U - UPDATE
+D - DELETE

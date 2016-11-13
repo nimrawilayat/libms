@@ -17,11 +17,8 @@
 	<div class="container">		
 		<div class="row">
 			<div class="col-xs-4">
-				<form action="/libms/books" method="post">
-				  <div class="form-group">
-				    <label for="exampleInputEmail1">Id</label>
-				    <input type="text" class="form-control" id="id" name="id" placeholder="Id">
-				  </div>
+				<form action="/libms/books" method="post" id="the-form">
+	
 				  <div class="form-group">
 				    <label for="exampleInputPassword1">Title</label>
 				    <input type="text" class="form-control" id="title" name="title" placeholder="Title">
@@ -30,7 +27,7 @@
 				    <label for="exampleInputFile">Author</label>
 				    <input type="text" class="form-control" id="author" name="author" placeholder="Author">
 				  </div>
-				  <button type="submit" class="btn btn-default">Submit</button>
+				  <button type="button" id="submit-button" class="btn btn-default">Submit</button>
 				</form>
 			</div>
 		</div>
@@ -44,5 +41,7 @@
 		
 		<input type="submit">
 	</form>
+	
+	<script type="text/javascript" src="/libms/resources/js/libms.js"></script>
 </body>
 </html>

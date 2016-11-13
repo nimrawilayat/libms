@@ -23,19 +23,15 @@ public class HomeController {
 	List<Book> books = new ArrayList<Book>();
 
 	@Autowired
-	private BookDao dao;
+	private BookDao bookDao;
 
 	@RequestMapping(value = { "/", "/home", "/home2" }, method = RequestMethod.GET)
 	public String getHomePage(Model model) {
 		model.addAttribute("books", books);
 		
 		Book book = new Book(30L, "C++ Rocks", "Mitchell Waite 333");
-		model.addAttribute("book", book);
+		model.addAttribute("book_hello", book);
 		
-		List<String> products = dao.getProducts();
-		for(String product: products) {
-			System.out.println(product);
-		}
 		return "home";
 	}
 
@@ -55,12 +51,14 @@ public class HomeController {
 	@RequestMapping(value = { "/books" }, method = RequestMethod.GET)
 	public String getBooks(Model model) {
 
-		Book book = new Book(30L, "C++ Rocks", "Mitchell Waite");
-		model.addAttribute("book", book);
-
-		model.addAttribute("books", books);
-
-		return "home";
+//		Book book = new Book(30L, "C++ Rocks", "Mitchell Waite");
+//		model.addAttribute("book", book);
+//
+//		model.addAttribute("books", books);
+		
+		List<Book> bookList = bookDao.getBooks();
+		model.addAttribute("books", bookList);
+		return "books";
 	}
 
 	@RequestMapping(value = { "/book/new" }, method = RequestMethod.GET)
@@ -95,8 +93,8 @@ public class HomeController {
 			return "book-form-v2";
 		} 
 		
-		saveNewBook(book);
-		return "redirect:/home";	
+		bookDao.addBook(book);
+		return "redirect:/books";	
 	}
 	
 	/**
