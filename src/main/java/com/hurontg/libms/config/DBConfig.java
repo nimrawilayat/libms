@@ -64,7 +64,7 @@ public class DBConfig {
 		p.setUrl("jdbc:sqlserver://localhost:1433;databaseName=libms");
 		p.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 		p.setUsername("libms_user");
-		p.setPassword("password1");
+		p.setPassword("libms_password");
 		p.setJmxEnabled(false);
 		p.setTestWhileIdle(false);
 		p.setTestOnBorrow(true);
