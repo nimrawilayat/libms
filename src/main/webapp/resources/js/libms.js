@@ -1,3 +1,4 @@
+// Handle Create Book
 $("#submit-button").on("click", function() {
 	
 	// Clear any previously found error
@@ -30,13 +31,14 @@ $("#submit-button").on("click", function() {
 	
 });
 
-// Handle Book update
+// Handle Update Book
 $("table.book-table span.glyphicon-pencil").on("click", function() {
 	var bookId = $(this).closest("tr").attr("data-book-id")
 	var editFormUrl = "/libms/book/" + bookId + "/edit"
 	location.href = editFormUrl;
 });
 
+// Handle Delete Book
 $("table.book-table span.glyphicon-trash").on("click", function() {
 	if (confirm("Are you sure you want to delete this Book?")) {
 		var bookId = $(this).closest("tr").attr("data-book-id")
@@ -44,5 +46,3 @@ $("table.book-table span.glyphicon-trash").on("click", function() {
 		location.href = url;	
 	}	
 });
-
-	
