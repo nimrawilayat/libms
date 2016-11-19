@@ -1,7 +1,5 @@
 package com.hurontg.libms.config;
 
-import java.sql.SQLException;
-
 import javax.sql.DataSource;
 
 import org.apache.tomcat.jdbc.pool.PoolProperties;
@@ -61,7 +59,7 @@ public class DBConfig {
 		org.apache.tomcat.jdbc.pool.DataSource ds = new org.apache.tomcat.jdbc.pool.DataSource();
 		PoolProperties p = new PoolProperties();
 
-		p.setUrl("jdbc:sqlserver://localhost:1433;databaseName=libms");
+		p.setUrl("jdbc:sqlserver://localhost:1433;databaseName=libms_db");
 		p.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 		p.setUsername("libms_user");
 		p.setPassword("libms_password");

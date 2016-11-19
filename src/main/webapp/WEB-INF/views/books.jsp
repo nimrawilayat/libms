@@ -16,13 +16,15 @@
 <body>
 	<h1>Books</h1>	
 	
-	<table>
-		<tr><th>id</th><th>Title</th><th>Author</th></tr>
+	<table class="book-table">
+		<tr><th>id</th><th>Title</th><th>Author</th><th></th><th></th></tr>
 	<c:forEach items="${books}" var="book">
-		<tr>
+		<tr data-book-id="${book.id}">
 			<td>${book.id}</td>
 			<td>${book.title}</td>
 			<td>${book.author}</td>
+      <td><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></td>
+      <td><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
 		</tr>
 	</c:forEach>
 	</table>
@@ -31,6 +33,7 @@
 <br>
 <div><a href="/libms/book/new">Create New Book</a></div>
 <div><a href="/libms/book/new/v2">Create New Book v2</a></div>
-	
+
+<script type="text/javascript" src="/libms/resources/js/libms.js"></script>	
 </body>
 </html>

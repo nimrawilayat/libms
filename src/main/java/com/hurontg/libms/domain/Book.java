@@ -7,11 +7,11 @@ public class Book {
 	private Long id;
 	
 	@NotNull
-	@Size(min=5, max=16, message="The Title property name must be between {min} and {max}")
+	@Size(min=5, max=45, message="The Title property name must be between {min} and {max}")
 	private String title;
 	
 	@NotNull
-	@Size(min=2, max=26, message="Author name must be between {min} and {max}")
+	@Size(min=2, max=45, message="Author name must be between {min} and {max}")
 	private String author;
 
 	public Book() {

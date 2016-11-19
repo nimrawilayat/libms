@@ -2,7 +2,7 @@
 Huron TG Enterprise Java with Spring Framework
 
 Sql Server system admin account:
-sa/password1
+sa/p@ssword1
 
 # Validation annotations provided by the Java Validation API 
 @AssertFalse 	The annotated element must be a Boolean type and be false.

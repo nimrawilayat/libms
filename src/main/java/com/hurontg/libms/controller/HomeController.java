@@ -48,30 +48,30 @@ public class HomeController {
 		return "home";
 	}
 
-	@RequestMapping(value = { "/books" }, method = RequestMethod.GET)
-	public String getBooks(Model model) {
-
-//		Book book = new Book(30L, "C++ Rocks", "Mitchell Waite");
-//		model.addAttribute("book", book);
+//	@RequestMapping(value = { "/books" }, method = RequestMethod.GET)
+//	public String getBooks(Model model) {
 //
-//		model.addAttribute("books", books);
-		
-		List<Book> bookList = bookDao.getBooks();
-		model.addAttribute("books", bookList);
-		return "books";
-	}
-
-	@RequestMapping(value = { "/book/new" }, method = RequestMethod.GET)
-	public String getBookForm(Model model) {
-		return "book-form";
-	}
-	
-	@RequestMapping(value = { "/book/new/v2" }, method = RequestMethod.GET)
-	public String getBookForm_v2(Model model) {
-		Book book = new Book(341L, "The Third Wave", "Alvin Toffler");
-		model.addAttribute("book", book);
-		return "book-form-v2";
-	}
+////		Book book = new Book(30L, "C++ Rocks", "Mitchell Waite");
+////		model.addAttribute("book", book);
+////
+////		model.addAttribute("books", books);
+//		
+//		List<Book> bookList = bookDao.getBooks();
+//		model.addAttribute("books", bookList);
+//		return "books";
+//	}
+//
+//	@RequestMapping(value = { "/book/new" }, method = RequestMethod.GET)
+//	public String getBookForm(Model model) {
+//		return "book-form";
+//	}
+//	
+//	@RequestMapping(value = { "/book/new/v2" }, method = RequestMethod.GET)
+//	public String getBookForm_v2(Model model) {
+//		Book book = new Book(341L, "The Third Wave", "Alvin Toffler");
+//		model.addAttribute("book", book);
+//		return "book-form-v2";
+//	}
 
 //	@RequestMapping(value = { "/books" }, method = RequestMethod.POST)
 //	public String createNewBook(Book book) {
@@ -87,15 +87,15 @@ public class HomeController {
 //		}		
 //	}
 	
-	@RequestMapping(value = { "/books" }, method = RequestMethod.POST)
-	public String createNewBook_v2(@Valid Book book, Errors error) {
-		if (error.hasErrors()) {
-			return "book-form-v2";
-		} 
-		
-		bookDao.addBook(book);
-		return "redirect:/books";	
-	}
+//	@RequestMapping(value = { "/books" }, method = RequestMethod.POST)
+//	public String createNewBook_v2(@Valid Book book, Errors error) {
+//		if (error.hasErrors()) {
+//			return "book-form-v2";
+//		} 
+//		
+//		bookDao.addBook(book);
+//		return "redirect:/books";	
+//	}
 	
 	/**
 	 * Apply Business Rules to determine if state is consistent.

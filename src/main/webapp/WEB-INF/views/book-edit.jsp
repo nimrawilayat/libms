@@ -17,8 +17,9 @@
 	<div class="container">		
 		<div class="row">
 			<div class="col-xs-6">
-				<h1>Create New Book</h1>
-				<sf:form action="/libms/books" method="post" modelAttribute="book" id="the-form">								  
+				<h1>Update Book</h1>
+				<sf:form action="/libms/books" method="put" modelAttribute="book" id="the-form">
+          <sf:hidden path="id"/>								  
 				  <div class="form-group">
 				    <label for="title" class="control-label">Title</label>
 				    <sf:input path="title" placeholder="Enter Book Title" cssClass="form-control"/>
@@ -31,7 +32,7 @@
 				    <sf:errors path="author" cssClass="error"/>
             <span class="help-block">Author is not valid, please only enter 5 to 45 valid characters.</span>
 				  </div>
-				  <button id="submit-button" type="button" class="btn btn-primary">Create Book</button>
+				  <button id="submit-button" type="button" class="btn btn-primary">Update Book</button>
 				</sf:form>
 			</div>
 		</div>    

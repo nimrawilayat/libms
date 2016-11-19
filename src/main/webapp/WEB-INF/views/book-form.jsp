@@ -16,16 +16,17 @@
 	
 	<div class="container">		
 		<div class="row">
-			<div class="col-xs-4">
+			<div class="col-xs-6">
 				<form action="/libms/books" method="post" id="the-form">
-	
 				  <div class="form-group">
-				    <label for="exampleInputPassword1">Title</label>
+				    <label for="title">Title</label>
 				    <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+            <span class="help-block">Title is not valid, please only enter 1 to 45 valid characters.</span>
 				  </div>
 				  <div class="form-group">
-				    <label for="exampleInputFile">Author</label>
+				    <label for="author">Author</label>
 				    <input type="text" class="form-control" id="author" name="author" placeholder="Author">
+            <span class="help-block">Title is not valid, please only enter 1 to 45 valid characters.</span>
 				  </div>
 				  <button type="button" id="submit-button" class="btn btn-default">Submit</button>
 				</form>

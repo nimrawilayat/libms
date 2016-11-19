@@ -1,32 +1,48 @@
 $("#submit-button").on("click", function() {
-//	var id = $("#id").val();
-//	var title = $("#title").val();
-//	var author = $("#author").val();
-//	
-//	var reId = new RegExp("^\d{1,20}$");
-//	var validId = reId.test(id);
-//	
-//	var reText = new RegExp("^[A-Za-z0-9]{2,100}$");
-//	var validTitle = reText.test(title);
-//	var validAuthor = reText.test(author);
-//	
-//	if (!validId || !validTitle || !validAuthor) {
-//		alert("Input is not valid");
-//		return;
-//	} else {
-		$("#the-form").submit();
-//	}
+	
+	// Clear any previously found error
+	$("#the-form")
+		.find(".form-group")
+		.removeClass("has-error");
+	
+	var title = $("#title").val();
+	var author = $("#author").val();
+	
+	var regex = new RegExp("^[a-zA-Z0-9 &_+-]{5,45}$");
+	
+	if (!regex.test(title)) {
+		$("#title")
+			.closest("div.form-group")
+			.addClass("has-error");
+		
+		return;
+	}
+	
+	if (!regex.test(author)) {
+		$("#author")
+			.closest("div.form-group")
+			.addClass("has-error");
+		
+		return;
+	}
+	
+	$("#the-form").submit();
 	
 });
 
-	var re = new RegExp($("#regex").val());
-	var pattern = $("#pattern").val();
+// Handle Book update
+$("table.book-table span.glyphicon-pencil").on("click", function() {
+	var bookId = $(this).closest("tr").attr("data-book-id")
+	var editFormUrl = "/libms/book/" + bookId + "/edit"
+	location.href = editFormUrl;
+});
+
+$("table.book-table span.glyphicon-trash").on("click", function() {
+	if (confirm("Are you sure you want to delete this Book?")) {
+		var bookId = $(this).closest("tr").attr("data-book-id")
+		var url = "/libms/book/" + bookId + "/delete"
+		location.href = url;	
+	}	
+});
+
 	
-	var result = re.test(pattern);
-	var message = "Pattern does not Match";
-	
-	if (result) {
-		message = "Pattern Matches";
-	} 
-	
-	$("#regex-pattern-result").text(message);

@@ -26,3 +26,10 @@ GO
 SET ANSI_PADDING OFF
 GO
 
+--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+insert into book (title, author) values ('C++ Primer Plus', 'Mithcell Waite')
+insert into book (title, author) values ('The C Programming Language', 'Ritche & Kernigan')
+insert into book (title, author) values ('UML Distilled', 'Jake Author')
+insert into book (title, author) values ('Node.js', 'Jane Author')
+insert into book (title, author) values ('Python', 'John Author')
+--%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

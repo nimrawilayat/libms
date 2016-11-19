@@ -23,3 +23,15 @@ span.error {
     padding-bottom: 5px;	
 	
 }
+
+.form-group .help-block { 
+	display: none; 
+}
+
+.form-group.has-error .help-block { 
+	display: block; 
+}
+
+table.book-table span.glyphicon:hover {
+	cursor: pointer;
+}
