@@ -12,6 +12,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hurontg.libms.domain.Book;
 import com.hurontg.libms.service.BookService;
@@ -80,8 +81,29 @@ public class BookController {
 		
 		return "redirect:/books";
 	}
+	
+	//
+	// The following methods return json representation 
+	//
+	
+	@RequestMapping(value = { "/v1/books" }, method = RequestMethod.GET)
+	@ResponseBody 
+	public List<Book> getBooksAsJson(Model model) {
+		List<Book> bookList = bookService.findAllBooks();		
+		
+		return bookList;
+	}
 
-
+	@RequestMapping(value = { "/v1/book/{id}" }, method = RequestMethod.GET)
+	@ResponseBody
+	public Book getBookAsJson(@PathVariable("id") Long id, Model model) {
+		
+		Book book = bookService.findBookById(id);
+		
+		return book;
+	}
+	
+	
 }
 
 // @Component

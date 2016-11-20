@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,6 +22,7 @@ public class HomeController {
 	List<Book> books = new ArrayList<Book>();
 
 	@Autowired
+	@Qualifier("bookDaoImpl")
 	private BookDao bookDao;
 
 	@RequestMapping(value = { "/", "/home", "/home2" }, method = RequestMethod.GET)
