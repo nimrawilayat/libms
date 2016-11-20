@@ -28,8 +28,8 @@ public class BookController {
 	@RequestMapping(value = { "/books" }, method = RequestMethod.GET)
 	public String getBooks(Model model) {
 
-		List<Book> bookList = bookService.findAllBooks();
-		model.addAttribute("books", bookList);
+//		List<Book> bookList = bookService.findAllBooks();
+//		model.addAttribute("books", bookList);
 		return "books";
 	}
 
@@ -83,9 +83,18 @@ public class BookController {
 	}
 	
 	//
-	// The following methods return json representation 
+	// The following methods return json (Javascript Object Notation) representation 
 	//
 	
+	/*
+	 * Book b = new Book(23L, "C++ Primer", "M Waite");
+	 * 
+	 * "bookList": [
+	 * 		{"id": "23", "title": "C++ Primer", "author": "M Waite"},
+	 * 		{"id": "123", "title": "Python", "author": "M Waite 22"},
+	 * 		{"id": "223", "title": "C++ Primer2222", "author": "M Waite 433"}
+	 * 	]
+	 */
 	@RequestMapping(value = { "/v1/books" }, method = RequestMethod.GET)
 	@ResponseBody 
 	public List<Book> getBooksAsJson(Model model) {

@@ -53,22 +53,29 @@
 			dataType : 'json',
 		  url : '/libms/v1/books',
 		  type : "get"
-		}).done(function(data, textStatus, jqXHR) {  
-		  $.each(data, function(i, book) {
-		    console.log(book.id + ', ' + book.title + ', ' + book.author);        
-        $('<tr data-book-id=' + book.id + '>').append(
-          $('<td>').text(book.id),
-          $('<td>').text(book.title),
-          $('<td>').text(book.author),
-          $('<td>').html('<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>'),
-          $('<td>').html('<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>')
-        ).appendTo('#book-table-json');
+		}).done(function(books, textStatus, jqXHR) {  
+		  $.each(books, function(i, book) {
+		    console.log(book.id + ', ' + book.title + ', ' + book.author);   
+		    
+		    /*$('<div/>').text(book.id + ', ' + book.title + ', ' + book.author).appendTo('#book-container');*/
+		    
+	        $('<tr data-book-id=' + book.id + '>').append(
+	          $('<td>').text(book.id),
+	          $('<td>').text(book.title),
+	          $('<td>').text(book.author),
+	          $('<td>').html('<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>'),
+	          $('<td>').html('<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>')
+	        ).appendTo('#book-table-json');
+	        
 		  });
+			
 		}).fail(function(jqXHR, textStatus, errorThrown) {
 		  console.log('Failed to fetch books using ajax');
 		}).always(function(dataOrjqXHR, textStatus, jqXHRorErrorThrown) {
 			console.log("I'm always called, regardless of success or error");
 		});
+		
+		
 	};
 	
 	fetchBooks();
@@ -79,6 +86,10 @@
 	  show: false
 	});
 
+	$("#show-create-book-modal").on("click", function() {
+		$bookModal.modal('show');
+	});
+	
 	// Trigger Headline modal
 	$("#book-table-json").on("click", "span.glyphicon-pencil", function() {
 		var bookId = $(this).closest("tr").attr("data-book-id");
@@ -89,6 +100,9 @@
 		  type : "get"
 		}).done(function(data, textStatus, jqXHR) {  
 		  console.log(data);
+		  $("#id").val(data.id);
+		  $("#title").val(data.title);
+		  $("#author").val(data.author);
 		}).fail(function(jqXHR, textStatus, errorThrown) {
 		  console.log('Failed to fetch book using ajax');
 		}).always(function(dataOrjqXHR, textStatus, jqXHRorErrorThrown) {

@@ -15,7 +15,11 @@
 </head>
 <body>  
   <div class="container">
-    <div class="row">
+  
+  <div id="book-container">
+  	
+  </div>
+    <%-- <div class="row">
 	   <div class="col-xs-6">
       <h1>Books</h1>	
     	<table class="table table-striped table-bordered table-hover table-condensed">
@@ -35,6 +39,12 @@
     
     <div class="row top20">
      <div class="col-xs-6">
+      <a href="/libms/book/new/v2" class="btn btn-primary btn-sm">Create New Book</a>     
+     </div>
+     </div> --%>
+     
+    <div class="row top20">
+     <div class="col-xs-6">
       <h1>Books</h1>  
       <table id="book-table-json" class="table table-striped table-bordered table-hover table-condensed">
         <tr><th>id</th><th>Title</th><th>Author</th><th></th><th></th></tr>                      
@@ -42,15 +52,11 @@
     </div>
     </div>
     
-    <div class="row top20">
-     <div class="col-xs-6">
-      <a href="/libms/book/new/v2" class="btn btn-primary btn-sm">Create New Book</a>     
-     </div>
-     </div>
+    
      
      <div class="row top20">
        <div class="col-xs-6">
-        <button id="show-book-modal">Show Book Modal</button>     
+        <button id="show-create-book-modal">Create Book</button>     
        </div>
      </div>
   </div>
@@ -93,7 +99,7 @@
           </div>
         </div>
       </div>
-    </div> 
+    </div>
 <script type="text/javascript" src="/libms/resources/js/libms.js"></script>	
 </body>
 </html>
