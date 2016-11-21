@@ -100,6 +100,6 @@
         </div>
       </div>
     </div>
-<script type="text/javascript" src="/libms/resources/js/libms.js"></script>	
+<script type="text/javascript" src="/libms/resources/js/libms.js?rand=<%=new java.util.Date().getTime()%>"></script>	
 </body>
 </html>
