@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -124,12 +123,17 @@ public class BookController {
 		return "OK";
 	}
 	
-	@RequestMapping(value = { "/v1/books/{id}" }, method = RequestMethod.PUT, consumes = "application/json")
-	@ResponseBody 
-	public String updateBookV1(@PathVariable Long id, @RequestBody Book book) {
-		
-
+	@ResponseBody
+	@RequestMapping(value = { "/v1/books/{id}" }, method = RequestMethod.PUT)	 
+	public String updateBookV1(@PathVariable("id") Long id, Book book) {
 		bookService.updateBook(book);
+		return "OK";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = { "/v1/books/{id}" }, method = RequestMethod.DELETE)	 
+	public String deleteBookV1(@PathVariable("id") Long id) {
+		bookService.deleteBook(id);
 		return "OK";
 	}
 	

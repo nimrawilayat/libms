@@ -60,7 +60,7 @@
        </div>
      </div>
   </div>
-
+            
     <div id="book-modal" class="modal fade" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -69,7 +69,8 @@
             <h4 class="modal-title">Book</h4>
           </div>
           <div class="modal-body">
-            <form id="book-form">
+            <form id="book-form" method="post">
+            <!-- <input type="hidden" name="_method" id="_method" value="put"/> -->
               <input type="hidden" name="id" id="id" value=""/>
               <div class="container">
                 <div class="row">
@@ -100,6 +101,6 @@
         </div>
       </div>
     </div>
-<script type="text/javascript" src="/libms/resources/js/libms.js?rand=<%=new java.util.Date().getTime()%>"></script>	
+<script type="text/javascript" src="/libms/resources/js/libms.js"></script>	
 </body>
 </html>

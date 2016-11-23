@@ -49,24 +49,27 @@
 		$.ajax({
 			dataType : 'json',
 		  url : '/libms/v1/books',
-		  type : "get"
+		  method : "get"
 		}).done(function(books, textStatus, jqXHR) {
 	    // First clear out the rows which may have been previously created
 	    $('#book-table-json tr[data-book-id]').remove();
-
+	    
+	    var rows = [];
 		  $.each(books, function(i, book) {
 		    console.log(book.id + ', ' + book.title + ', ' + book.author);   
 		    
 		    /*$('<div/>').text(book.id + ', ' + book.title + ', ' + book.author).appendTo('#book-container');*/
 
-        $('<tr data-book-id=' + book.id + '>').append(
+        var $tr = $('<tr data-book-id=' + book.id + '>').append(
           $('<td>').text(book.id),
           $('<td>').text(book.title),
           $('<td>').text(book.author),
           $('<td>').html('<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>'),
           $('<td>').html('<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>')
-        ).appendTo('#book-table-json');	        
+        );
+        rows.push($tr);        	        
 		  });			
+		  $('#book-table-json').append(rows);
 		}).fail(function(jqXHR, textStatus, errorThrown) {
 		  console.log('Failed to fetch books using ajax');
 		}).always(function(dataOrjqXHR, textStatus, jqXHRorErrorThrown) {
@@ -86,7 +89,7 @@
 		$bookModal.modal('show');
 	});
 	
-	$("#save-book").on("click", function() {
+	$("#save-book").on("click", function() {	
 		var title = $("#title").val();
 		var author = $("#author").val();
 		
@@ -113,20 +116,18 @@
 		var id = $("#id").val();
 		
 		var url = '/libms/v1/books';
-		var httpMethod = 'post';
-		
+		var httpPut = '';
 		if (id) {
 			url = url + '/' + id;
-			httpMethod = 'put';
+			httpPut = '&_method=put';
 		}
 		
 		$.ajax({
 		  url : url,
-		  type : httpMethod,
-		  data: $("#book-form").serialize(),
-		  headers: { 
-        'Accept': 'application/json',
-        'Content-Type': 'application/json' 
+		  method : 'post',
+		  data: $("#book-form").serialize() + httpPut,
+		  headers: {
+		  	'Content-Type': 'application/x-www-form-urlencoded'
 		  }
 		}).done(function(data, textStatus, jqXHR) {
 			if (data === 'OK') {
@@ -167,4 +168,29 @@
 	$("#cancel-book").on("click", function() {		
 	  $bookModal.modal('hide');
 	  $("#book-form").trigger('reset');
+	});
+
+	// Delete Book
+	$("#book-table-json").on("click", "span.glyphicon-trash", function() {
+		if (!confirm("Are you sure you want to delete this book?")) {
+			return;
+		}
+		
+		var bookId = $(this).closest("tr").attr("data-book-id");
+		
+		$.ajax({
+		  url : '/libms/v1/books/' + bookId,
+		  method : "post",
+		  data: {
+		  	'_method': 'delete'
+		  }		  	
+		}).done(function(data, textStatus, jqXHR) {  
+			if (data === 'OK') {
+				fetchBooks();
+			} else {
+				alert('Failed');
+			}
+		}).fail(function(jqXHR, textStatus, errorThrown) {
+		  console.log('Failed to fetch book using ajax');
+		});	  
 	});
