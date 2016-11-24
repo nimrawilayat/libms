@@ -6,6 +6,8 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import com.hurontg.libms.filter.ExampleFilter;
+
 public class WebAppInitializer extends
 		AbstractAnnotationConfigDispatcherServletInitializer {
 	
@@ -29,6 +31,6 @@ public class WebAppInitializer extends
 		CharacterEncodingFilter cef = new CharacterEncodingFilter();
 		cef.setEncoding("UTF-8");
 
-		return new Filter[] { new HiddenHttpMethodFilter(), cef };
+		return new Filter[] { new HiddenHttpMethodFilter(), cef, new ExampleFilter() };
 	}
 }
