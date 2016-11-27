@@ -29,3 +29,17 @@ C - INSERT
 R - SELECT
 U - UPDATE
 D - DELETE
+
+Transaction
+	Atomic
+	Consistent
+	Isolation
+	Durable
+	
+Pessimistic Locking
+Optimistic Locking
+
+	Commits
+	Rollback
+	
+	
