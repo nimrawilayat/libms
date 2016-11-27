@@ -15,6 +15,7 @@ CREATE TABLE [dbo].[book](
   [id] [int] IDENTITY(1,1) NOT NULL,
   [title] [varchar](50) NOT NULL,
   [author] [varchar](50) NOT NULL,
+  [version] [int] NOT NULL,
  CONSTRAINT [PK_id] PRIMARY KEY CLUSTERED 
 (
   [id] ASC
@@ -27,9 +28,9 @@ SET ANSI_PADDING OFF
 GO
 
 --%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-insert into book (title, author) values ('C++ Primer Plus', 'Mithcell Waite')
-insert into book (title, author) values ('The C Programming Language', 'Ritche & Kernigan')
-insert into book (title, author) values ('UML Distilled', 'Jake Author')
-insert into book (title, author) values ('Node.js', 'Jane Author')
-insert into book (title, author) values ('Python', 'John Author')
+insert into book (title, author, version) values ('C++ Primer Plus', 'Mithcell Waite', 1)
+insert into book (title, author, version) values ('The C Programming Language', 'Ritche & Kernigan', 1)
+insert into book (title, author, version) values ('UML Distilled', 'Jake Author', 1)
+insert into book (title, author, version) values ('Node.js', 'Jane Author', 1)
+insert into book (title, author, version) values ('Python', 'John Author', 1)
 --%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

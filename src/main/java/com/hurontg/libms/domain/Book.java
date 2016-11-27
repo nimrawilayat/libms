@@ -14,13 +14,20 @@ public class Book {
 	@Size(min=2, max=45, message="Author name must be between {min} and {max}")
 	private String author;
 
+	private Long version;
+	
 	public Book() {
 	}
 
 	public Book(Long id, String title, String author) {
+		this(id, title, author, 1L);
+	}
+	
+	public Book(Long id, String title, String author, Long version) {
 		this.id = id;
 		this.title = title;
 		this.author = author;
+		this.version = version;
 	}
 
 	public Long getId() {
@@ -47,10 +54,18 @@ public class Book {
 		this.author = author;
 	}
 
+	
+	public Long getVersion() {
+		return version;
+	}
+
+	public void setVersion(Long version) {
+		this.version = version;
+	}
+
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return id + ", " + title + ", " + author;
+		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", version=" + version + "]";
 	}
 
 	

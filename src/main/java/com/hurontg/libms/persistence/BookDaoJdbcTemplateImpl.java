@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -23,7 +24,7 @@ public class BookDaoJdbcTemplateImpl implements BookDao {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
-	private static final String SQL_SELECT_ALL_BOOKS = "select id, title, author from book";
+	private static final String SQL_SELECT_ALL_BOOKS = "select id, title, author, version from book";
 
 	@Override
 	public List<Book> getBooks() {
@@ -38,11 +39,14 @@ public class BookDaoJdbcTemplateImpl implements BookDao {
 		jdbcTemplate.update(SQL_INSERT_BOOK, book.getTitle(), book.getAuthor());
 	}
 
-	private static final String SQL_UPDATE_BOOK = "update book set title = ?, author = ? where id = ?";
+	private static final String SQL_UPDATE_BOOK = "update book set title = ?, author = ?, version = ? where id = ? and version = ?";
 
 	@Override
 	public void updateBook(Book book) {
-		jdbcTemplate.update(SQL_UPDATE_BOOK, book.getTitle(), book.getAuthor(), book.getId());
+		int rowsUpdated = jdbcTemplate.update(SQL_UPDATE_BOOK, book.getTitle(), book.getAuthor(), book.getVersion()+1, book.getId(), book.getVersion());
+		if (rowsUpdated == 0) {
+			throw new OptimisticLockingFailureException("An attempt was detected to update row with stale data");			
+		}
 	}
 
 	private static final String SQL_DELETE_BOOK = "delete from book where id = ?";
@@ -52,7 +56,7 @@ public class BookDaoJdbcTemplateImpl implements BookDao {
 		jdbcTemplate.update(SQL_DELETE_BOOK, id);
 	}
 
-	private static final String SQL_SELECT_BOOK = "select id, title, author from book where id = ?";
+	private static final String SQL_SELECT_BOOK = "select id, title, author, version from book where id = ?";
 
 	@Override
 	public Book getBookById(Long id) {
@@ -67,6 +71,7 @@ public class BookDaoJdbcTemplateImpl implements BookDao {
 			book.setId(rs.getLong("id"));
 			book.setTitle(rs.getString("title"));
 			book.setAuthor(rs.getString("author"));
+			book.setVersion(rs.getLong("version"));
 			return book;
 		}
 	}

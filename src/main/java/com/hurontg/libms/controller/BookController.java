@@ -6,6 +6,8 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -123,11 +125,14 @@ public class BookController {
 		return "OK";
 	}
 	
-	@ResponseBody
 	@RequestMapping(value = { "/v1/books/{id}" }, method = RequestMethod.PUT)	 
-	public String updateBookV1(@PathVariable("id") Long id, Book book) {
-		bookService.updateBook(book);
-		return "OK";
+	public ResponseEntity<?> updateBookV1(@PathVariable("id") Long id, Book book) {
+		try {
+			bookService.updateBook(book);
+		} catch (RuntimeException e) {
+			return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		return new ResponseEntity<String>("OK", HttpStatus.OK);
 	}
 	
 	@ResponseBody

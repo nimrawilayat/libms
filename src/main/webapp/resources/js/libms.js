@@ -83,6 +83,10 @@
 	  backdrop: 'static',
 	  show: false
 	});
+	
+	$bookModal.on("show.bs.modal", function(e) {
+		$bookModal.find(".alert-danger").hide();
+	});
 
 	$("#show-create-book-modal").on("click", function() {
 		$("#book-form").trigger('reset');
@@ -93,7 +97,7 @@
 		var title = $("#title").val();
 		var author = $("#author").val();
 		
-		var regex = new RegExp("^[a-zA-Z0-9 &_+-]{5,45}$");
+		var regex = new RegExp("^[a-zA-Z0-9 &_+-.]{5,45}$");
 		
 		if (!regex.test(title)) {
 			$("#title")
@@ -135,11 +139,13 @@
 			} else {
 				alert('Failed');
 			}
-		}).fail(function(jqXHR, textStatus, errorThrown) {
-		  console.log('Failed to create book using ajax');
-		}).always(function(dataOrjqXHR, textStatus, jqXHRorErrorThrown) {
+			
 			$bookModal.modal('hide');
 		  $("#book-form").trigger('reset');
+		}).fail(function(jqXHR, textStatus, errorThrown) {
+		  $bookModal.find(".alert-danger").text(jqXHR.responseText).show();
+		}).always(function(dataOrjqXHR, textStatus, jqXHRorErrorThrown) {
+			
 		});
 	});
 		
@@ -155,6 +161,7 @@
 		  $("#id").val(data.id);
 		  $("#title").val(data.title);
 		  $("#author").val(data.author);
+		  $("#version").val(data.version);
 		}).fail(function(jqXHR, textStatus, errorThrown) {
 		  console.log('Failed to fetch book using ajax');
 		}).always(function(dataOrjqXHR, textStatus, jqXHRorErrorThrown) {

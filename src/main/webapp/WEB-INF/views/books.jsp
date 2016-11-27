@@ -69,9 +69,12 @@
             <h4 class="modal-title">Book</h4>
           </div>
           <div class="modal-body">
+            <div class="alert alert-danger" role="alert"></div>
+          
             <form id="book-form" method="post">
             <!-- <input type="hidden" name="_method" id="_method" value="put"/> -->
               <input type="hidden" name="id" id="id" value=""/>
+              <input type="hidden" name="version" id="version" value=""/>
               <div class="container">
                 <div class="row">
                   <div class="col-xs-6">
